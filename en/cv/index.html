@@ -45,6 +45,7 @@
   <header class="page-head">
     <h1>Evgenii Uvarov</h1>
     <p class="role">Senior Backend Developer · Python</p>
+    <p class="location">Saint Petersburg, Russia · remote, hybrid or on-site · open to relocation</p>
   </header>
 
   <nav class="contacts" aria-label="Contact">
@@ -55,31 +56,29 @@
   </nav>
 
   <main>
-    <p class="lede">Backend developer, writing Python since 2016, the last four years in payments and fintech. I usually own a service from the first commit through production and beyond: API contract, code, deployment, monitoring, incident response.</p>
-    <p class="lede">I care about the boring things: idempotent migrations, integrations that don't break, logs and traces you can actually debug with, and releases nobody notices.</p>
+    <p class="lede">Backend developer with 10+ years of commercial Python development, the last four in payments and fintech. I usually own a service from the first commit through production and beyond: API contract, code, deployment, monitoring, incident response.</p>
+    <p class="lede">I care about the boring things: idempotent migrations, integrations that don't break, logs and traces you can actually debug with, and deployments with zero impact on users.</p>
 
     <h2>Experience</h2>
 
     <div class="company-block">
       <h3>Life Pay / Fortis <span class="dates">· Jul 2022 — present</span></h3>
-      <p class="role">Backend Developer</p>
+      <p class="role">Backend Developer · fintech for small and medium businesses in Russia: acquiring, Faster Payments (SBP), online cash registers</p>
 
       <h4>Fortis (MENA): merchant self-service <span class="dates">· 2024 — present</span></h4>
       <ul class="bullets">
-        <li>On the team building self-service merchant onboarding on Temporal and Keycloak, from the first commit to the September 2025 release. Proposed extending the onboarding contract via JSON Schema stored in Vault. Built token exchange, magic links, OTP and Google sign-in, and multi-layer brute-force protection.</li>
-        <li>Rewrote the Keycloak client on FastAPI with a gradual v2 cutover, and added API-key authorization for the Public API.</li>
-        <li>Designed and built a tariff/entitlements gateway for POS terminals from scratch, and validated it in shadow mode on live traffic: request mirroring, diffing against the BFF in Prometheus and Grafana, chaos testing for failure handling.</li>
-        <li>Built the pricing and subscriptions platform from the first AWS build to production in 2025; the lead backend developer on this track for over two years. In 2026, built billing and subscription add-ons.</li>
-        <li>Built a file service from scratch and shipped it to production in 5 months, then moved image processing onto Kafka with a transactional outbox, and added a document upload service for KYC.</li>
-        <li>Built a dashboard service for the merchant portal and a Zendesk ticket-enrichment service from scratch. In the HubSpot and MyFatoorah adapters, implemented merchant onboarding from a deal and multi-account payments.</li>
-        <li>Set up engineering foundations for the unit: linters, pre-commit, CODEOWNERS and SonarQube across roughly 15 projects, end-to-end tracing through the API and Temporal workers, Sentry environments and Prometheus metrics for on-call. To improve resilience, built an Ansible-based secrets configurator in Vault for disaster recovery.</li>
-        <li>Designed unit-level solutions: a workflow registry shared across teams, the KYC data model. Validated infrastructure decisions with practical tests before committing — after comparing a managed cloud cache with a self-hosted option, the team chose self-hosted Redis on Kubernetes. Built PoCs for production feature control via feature-flag services (Unleash) and CRDs for the API Gateway.</li>
-        <li>Wrote OpenAPI specs myself for some services, and reviewed and discussed design decisions for the rest. Validated contracts with Stoplight, and for API-first services, where the OpenAPI document is the source of truth, covered them with contract tests using Schemathesis.</li>
+        <li><strong>Self-service onboarding.</strong> A web portal where merchants register on their own, with registration steps orchestrated in Temporal. Wrote a substantial part of the workflows, with compensations and idempotent retries, and built a workflow registry page listing each workflow with its input and output JSON schemas.</li>
+        <li><strong>Authentication.</strong> Customized Keycloak: sign-in via token exchange, magic links, OTP and Sign in with Google, multi-layer brute-force protection. Built a Keycloak adapter service on FastAPI, and added API-key authorization for the Public API.</li>
+        <li><strong>Pricing and subscriptions.</strong> Worked on the pricing and subscriptions platform from the first AWS build to production in 2025; in 2026, built billing and add-ons. Designed and built a tariff/entitlements gateway for POS terminals from scratch, and validated it in shadow mode on live traffic: request mirroring, diffing against the BFF in Prometheus and Grafana, chaos testing for failure handling.</li>
+        <li><strong>Files and KYC.</strong> Built a file service from scratch and shipped it to production in 5 months: S3 storage, on-the-fly image resizing and transformations, background generation of variants, HEIC, WebP and PDF. Designed the KYC data model and built a document upload service.</li>
+        <li><strong>Merchant portal.</strong> Built a dashboard service for the merchant portal and a Zendesk ticket-enrichment service from scratch.</li>
+        <li><strong>HubSpot.</strong> Built merchant onboarding from a CRM deal and export of AI assistant and merchant portal usage metrics to HubSpot. For payment links from deals, extended the MyFatoorah adapter to support multiple accounts isolated by domain.</li>
+        <li><strong>Engineering foundations.</strong> With the team, rolled out linters, pre-commit, CODEOWNERS and SonarQube across roughly 15 projects, end-to-end tracing including Temporal workers, Sentry environments and Prometheus metrics for on-call. Built an Ansible-based Vault secrets configurator for disaster recovery. Wrote OpenAPI specs for some services, and covered API-first services with contract tests using Schemathesis.</li>
       </ul>
 
       <h4>AI in development <span class="dates">· 2025 — present</span></h4>
       <ul class="bullets">
-        <li>Built a Telegram interface for the merchant AI assistant, from the design doc (OIDC via Keycloak, SSE streaming) to release, then migrated the assistant to a separate infrastructure perimeter with different data-residency requirements.</li>
+        <li>Built the Telegram interface for the merchant AI assistant (OIDC via Keycloak, Redis sessions, SSE streaming) and the data layer behind the LLM tool: it picks the data source and returns data in a single format. When the assistant moved to a separate perimeter with different data-residency requirements, connected new BFFs and adapted the infrastructure.</li>
         <li>Evaluated AI-based MR review using a test MR seeded with intentional bugs: compared qodo, kodus and my own prototype on local models. The paid agents missed bugs and gave inconsistent results across runs, so I proposed combining static analysis with parallel review of diff chunks.</li>
         <li>About a year of daily development with Claude Code, Cursor before that. Moved my setup to a provider-agnostic source: rules, skills, MCP and permissions live in one place (AGENTS.md), from which a tested generator builds configs for Claude Code and opencode. Measured token usage across 17 sessions and restructured my workflow around it: reading code in subagents, handoff hooks between sessions, and my own usage tracking.</li>
       </ul>
@@ -88,9 +87,16 @@
       <ul class="bullets">
         <li>For about 2.5 years, owned the payment links system and the SBP (Faster Payments System) Telegram bot as the original author: API v1 and v2, a client library, multi-tenancy, admin panel, metrics, support, and the track's quarterly roadmap.</li>
         <li>Built a service from scratch that relays card transactions into a unified merchant portal via Kafka: from message schemas to production, including a DLQ.</li>
-        <li>Planned and ran the back-office migration from Python 2 to Python 3 and a current Django version, including moving database migrations from raw SQL to Alembic and then to Django migrations.</li>
-        <li>Built a payment gateway service and implemented Yandex Split (BNPL) and MyFatoorah integrations in it: refunds, webhook signature verification, multi-currency support, recurring payments.</li>
+        <li>Planned and ran the back-office migration from Python 2 and PHP to Python 3 and a current Django version, including moving database migrations from raw SQL to Alembic and then to Django migrations.</li>
+        <li>In the payment gateway service, implemented the Yandex Split (BNPL) integration and, as groundwork for the MENA launch, the first MyFatoorah integration: refunds, webhook signature verification, multi-currency support, recurring payments.</li>
+        <li>In the payment core, built two-stage payment handling (hold, confirm, void) and blocked repeat payment of an already-paid order; in the back office, built transaction status checks and status alignment on reconciliation mismatches.</li>
         <li>Diagnosed and fixed: 3DS flow hangs, false payment notifications, and duplicate orders caused by messenger link-preview bots.</li>
+      </ul>
+
+      <h4>Team and process</h4>
+      <ul class="bullets">
+        <li>Conducted technical interviews for hiring.</li>
+        <li>Periodically took over part of my manager's duties: sprint planning, releases, running projects.</li>
       </ul>
 
       <p class="stack"><b>Stack:</b> Python, FastAPI, Flask, Django, SQLAlchemy, Temporal, Keycloak, PostgreSQL, Redis, Kafka, S3, Kubernetes (EKS), GitLab CI, Vault, OpenTelemetry, Sentry, Prometheus, Grafana</p>
@@ -101,10 +107,10 @@
       <p class="role">Senior Software Engineer · Saint Petersburg</p>
       <ul class="bullets">
         <li>Built and launched a search and metadata portal for a client from scratch: REST API on Django and FastAPI, search on Elasticsearch.</li>
-        <li>Built microservices on AWS: ECS, Lambda, SQS, S3.</li>
-        <li>Developed and maintained ETL pipelines on AWS Glue, S3 and PySpark.</li>
-        <li>Owned the backend side of every feature on the project, shipping more than 10 epics and user stories.</li>
+        <li>Built microservices on AWS (ECS, Lambda, SQS, S3) and ETL pipelines on AWS Glue and PySpark.</li>
+        <li>Owned the backend side of every feature on the project.</li>
         <li>Introduced unit testing and code style checks (pytest, flake8) on the team, and sped up builds and deployment. Infrastructure on Terraform.</li>
+        <li>Mentored and trained interns and junior developers.</li>
       </ul>
       <p class="stack"><b>Stack:</b> Python, Django, FastAPI, SQLAlchemy, PySpark, PostgreSQL, Elasticsearch, AWS (ECS, Lambda, SQS, S3, Glue, Athena), Terraform</p>
     </div>
@@ -127,36 +133,32 @@
       <h3>RAWG.io <span class="dates">· Aug 2018 — May 2019 (10 mo)</span></h3>
       <p class="role">Backend Developer · remote · a video game recommendation service, the "IMDb for games"</p>
       <ul class="bullets">
-        <li>Built the user-generated content backend: Django, PostgreSQL, Redis.</li>
-        <li>Improved site search and filters using Elasticsearch and PostgreSQL full-text search.</li>
-        <li>Implemented a real-time top-100 ranking.</li>
-        <li>Owned the backend of the recommendation system, based on user-based collaborative filtering.</li>
-        <li class="print-trim">Built batch operations in the UI, such as a ratings carousel.</li>
+        <li>Built the backend for user-generated content and the recommendation system, based on user-based collaborative filtering: Django, PostgreSQL, Redis.</li>
+        <li>Search and filters on Elasticsearch and PostgreSQL full-text search, plus a real-time top-100 ranking.</li>
       </ul>
-      <p class="stack"><b>Stack:</b> Python, Django REST Framework, PostgreSQL, Celery, Elasticsearch, RabbitMQ, memcached, Docker, Ansible, Jenkins</p>
+      <p class="stack"><b>Stack:</b> Python, DRF, PostgreSQL, Celery, Elasticsearch, RabbitMQ, Docker</p>
     </div>
 
     <div class="company-block compact">
       <h3>GOST-group <span class="dates">· Jun 2016 — Aug 2018 (2 yr 3 mo)</span></h3>
       <p class="role">Python Developer · Moscow</p>
       <ul class="bullets">
-        <li>Developed a web application with forms and data analytics on Django and Jinja.</li>
-        <li class="print-trim">Refactored legacy code on the same project.</li>
-        <li>Built a Django-Admin-style admin panel for a Tornado-based project that processed and analyzed geodata.</li>
+        <li>Developed web applications on Django and Tornado: forms and data analytics, an admin panel for geodata processing.</li>
         <li>Wrote a Go service for parsing binary data coming from field equipment.</li>
       </ul>
-      <p class="stack"><b>Stack:</b> Python 2.7 / 3, Django, Tornado, Go, PostgreSQL, Redis, Celery, SQLAlchemy, Ansible</p>
+      <p class="stack"><b>Stack:</b> Python, Django, Tornado, Go, PostgreSQL, Redis, Celery</p>
     </div>
 
     <h2>Skills</h2>
     <dl class="skills">
       <dt>Languages</dt><dd>Python, SQL; some Go and Kotlin</dd>
       <dt>Backend</dt><dd>FastAPI, Django / DRF, Flask, SQLAlchemy + Alembic, pydantic, Celery, Temporal</dd>
+      <dt>Payments</dt><dd>online acquiring, Faster Payments (SBP), 3-D Secure, two-stage payments, refunds and recurring payments, BNPL, signed webhooks, transaction status reconciliation, idempotency</dd>
       <dt>Data</dt><dd>PostgreSQL, Redis, Kafka, Elasticsearch, S3</dd>
       <dt>Auth</dt><dd>Keycloak, OIDC, JWT, OTP</dd>
       <dt>Infrastructure</dt><dd>Kubernetes, Docker, GitLab CI, Terraform, Vault, AWS</dd>
       <dt>Observability</dt><dd>OpenTelemetry, Sentry, Prometheus, Grafana</dd>
-      <dt>Testing</dt><dd>pytest, Schemathesis, Stoplight, SonarQube</dd>
+      <dt>Testing</dt><dd>pytest, Schemathesis, SonarQube</dd>
       <dt>AI-assisted development</dt><dd>Claude Code, MCP, subagents, opencode, local models (Ollama)</dd>
     </dl>
 

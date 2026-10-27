@@ -57,6 +57,14 @@ header.page-head p.role {
   font-size: 1.05rem;
 }
 
+header.page-head p.role:has(+ p.location) { margin-bottom: 2px; }
+
+header.page-head p.location {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 nav.contacts {
   display: flex;
   flex-wrap: wrap;
@@ -263,5 +271,5 @@ a { color: var(--accent); }
   dl.skills dt, dl.skills dd { font-size: 9.5pt; }
 
   a { color: #000; text-decoration: none; }
-  header.page-head p.role { color: #333; }
+  header.page-head p.role, header.page-head p.location { color: #333; }
 }
