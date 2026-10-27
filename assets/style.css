@@ -1,0 +1,267 @@
+/* Evgenii Uvarov — resume site. Plain, semantic, print-friendly. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1b1f23;
+  --muted: #5b6370;
+  --accent: #1458d6;
+  --border: #e3e6ea;
+  --tag-bg: #f1f4f9;
+  --stack-fg: #556070;
+  --max-width: 760px;
+  --mono: "SF Mono", "Consolas", "Menlo", "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --fg: #e7e9ec;
+    --muted: #9aa3ad;
+    --accent: #6ea2ff;
+    --border: #2a2e33;
+    --tag-bg: #1f2227;
+    --stack-fg: #8b94a0;
+    --btn-primary-fg: #0b1220;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+header.page-head h1 {
+  font-size: 1.7rem;
+  margin: 0 0 2px;
+}
+
+header.page-head p.role {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+nav.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+nav.contacts a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+nav.contacts a:hover { border-color: var(--accent); color: var(--accent); }
+
+.lang-switch {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.lang-switch a { color: inherit; text-decoration: underline; }
+.lang-switch a[aria-current="true"] { color: var(--fg); font-weight: 600; text-decoration: none; }
+
+main p.lede {
+  font-size: 1.05rem;
+  margin: 0 0 16px;
+}
+
+main p.note {
+  color: var(--muted);
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 36px 0 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+}
+
+main > h2:first-of-type { border-top: none; padding-top: 0; margin-top: 28px; }
+
+h3 {
+  font-size: 1.02rem;
+  margin: 22px 0 2px;
+}
+
+h3 .dates {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+h3 + p.role {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.95rem;
+}
+
+h4 {
+  font-size: 0.95rem;
+  margin: 16px 0 6px;
+  color: var(--fg);
+}
+
+h4 .dates { color: var(--muted); font-weight: 400; }
+
+ul.bullets {
+  margin: 0 0 8px;
+  padding-left: 1.2em;
+}
+
+ul.bullets li {
+  margin-bottom: 7px;
+}
+
+p.stack {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--stack-fg);
+  margin: 10px 0 4px;
+  line-height: 1.5;
+}
+
+p.stack b { font-family: var(--sans); font-weight: 600; color: var(--muted); }
+
+ul.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 8px;
+  list-style: none;
+}
+
+ul.tags li {
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  color: var(--fg);
+}
+
+dl.skills { margin: 0; }
+dl.skills dt {
+  font-weight: 600;
+  margin-top: 12px;
+  font-size: 0.92rem;
+}
+dl.skills dd {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  color: var(--fg);
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--btn-primary-fg, #fff);
+}
+
+.btn.primary:hover { opacity: 0.9; }
+.btn:not(.primary):hover { border-color: var(--accent); color: var(--accent); }
+
+footer.page-foot {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+footer.page-foot a { color: inherit; }
+
+a { color: var(--accent); }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .wrap { padding: 32px 16px 56px; }
+  footer.page-foot { flex-direction: column; }
+}
+
+/* Hide secondary bullets when printing to shorten the PDF. Currently still
+   lands around 4 pages for this much experience; mark more .print-trim
+   candidates in the HTML if a hard 3-page cap is required. */
+@media print {
+  .print-trim { display: none !important; }
+}
+
+@media print {
+  @page { size: A4; margin: 15mm 18mm; }
+
+  body { font-size: 10.5pt; line-height: 1.32; color: #000; background: #fff; }
+
+  .lang-switch, .cta-row, .no-print, footer.page-foot nav { display: none !important; }
+
+  nav.contacts { font-size: 9.5pt; margin-bottom: 14pt; }
+  nav.contacts a { border-bottom: none; }
+
+  h1 { font-size: 16pt; }
+  h2 { font-size: 12pt; border-top: none; margin: 14pt 0 6pt; padding-top: 0; }
+  main > h2:first-of-type { margin-top: 10pt; }
+  h3 { font-size: 10.5pt; margin: 10pt 0 1pt; }
+  h4 { font-size: 10pt; margin: 7pt 0 3pt; }
+  h3 + p.role { margin-bottom: 3pt; }
+
+  ul.bullets li { margin-bottom: 3pt; break-inside: avoid; }
+
+  h3, h4 { break-after: avoid; }
+  h3 + p.role { break-before: avoid; }
+
+  .company-block.compact {
+    break-inside: avoid;
+  }
+
+  p.stack {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  dl.skills dt, dl.skills dd { font-size: 9.5pt; }
+
+  a { color: #000; text-decoration: none; }
+  header.page-head p.role { color: #333; }
+}

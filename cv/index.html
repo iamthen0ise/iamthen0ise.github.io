@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Евгений Уваров — CV, Senior backend-разработчик (Python)</title>
+<meta name="description" content="Полное резюме Евгения Уварова: опыт в Life Pay / Fortis, EPAM, JetBrains, RAWG.io, GOST-group. Python, FastAPI, Django, PostgreSQL, Kafka, Kubernetes, Temporal, Keycloak.">
+<link rel="canonical" href="https://iamthen0ise.github.io/cv/">
+<link rel="alternate" hreflang="ru" href="https://iamthen0ise.github.io/cv/">
+<link rel="alternate" hreflang="en" href="https://iamthen0ise.github.io/en/cv/">
+<link rel="alternate" hreflang="x-default" href="https://iamthen0ise.github.io/cv/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Евгений Уваров — CV">
+<meta property="og:url" content="https://iamthen0ise.github.io/cv/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Evgenii Uvarov",
+  "alternateName": "Евгений Уваров",
+  "jobTitle": "Senior Backend Developer (Python)",
+  "email": "mailto:e.uvarov@me.com",
+  "url": "https://iamthen0ise.github.io/",
+  "sameAs": [
+    "https://github.com/iamthen0ise",
+    "https://www.linkedin.com/in/eugene-uvarov-30409029/",
+    "https://t.me/evgenii_uvarov_dev"
+  ],
+  "worksFor": { "@type": "Organization", "name": "Life Pay / Fortis" },
+  "alumniOf": [
+    { "@type": "Organization", "name": "EPAM Systems" },
+    { "@type": "Organization", "name": "JetBrains" },
+    { "@type": "Organization", "name": "RAWG.io" },
+    { "@type": "Organization", "name": "GOST-group" }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="lang-switch"><a href="/cv/" aria-current="true">RU</a> · <a href="/en/cv/">EN</a></p>
+
+  <header class="page-head">
+    <h1>Евгений Уваров</h1>
+    <p class="role">Senior backend-разработчик · Python</p>
+  </header>
+
+  <nav class="contacts" aria-label="Контакты">
+    <a href="mailto:e.uvarov@me.com">e.uvarov@me.com</a>
+    <a href="https://github.com/iamthen0ise">GitHub</a>
+    <a href="https://www.linkedin.com/in/eugene-uvarov-30409029/">LinkedIn</a>
+    <a href="https://t.me/evgenii_uvarov_dev">Telegram</a>
+  </nav>
+
+  <main>
+    <p class="lede">Backend-разработчик, пишу на Python с 2016 года, последние четыре года — в платежах и финтехе. Обычно веду сервис от первого коммита до прода и дальше: контракт API, код, деплой, мониторинг, разбор инцидентов.</p>
+    <p class="lede">Важным считаю скучные вещи: идемпотентные интеграции, логи и трейсы, по которым можно разобраться, и выкатки, которых никто не замечает.</p>
+
+    <h2>Опыт работы</h2>
+
+    <div class="company-block">
+      <h3>Life Pay / Fortis <span class="dates">· июль 2022 — н. в.</span></h3>
+      <p class="role">Backend-разработчик</p>
+
+      <h4>Fortis (MENA): self-service мерчантов <span class="dates">· 2024 — н. в.</span></h4>
+      <ul class="bullets">
+        <li>В команде self-service онбординга мерчантов на Temporal и Keycloak с первого коммита до релиза в сентябре 2025. Предложил расширять контракт онбординга через JSON Schema в Vault. Сделал token exchange, magic link, вход по OTP и через Google, многоуровневую защиту от брутфорса.</li>
+        <li>Переписал клиент Keycloak на FastAPI с мягким переключением через v2, сделал авторизацию Public API по API-ключам.</li>
+        <li>Спроектировал и написал с нуля шлюз тарифных прав для POS-кассы и проверял его «в тени» на боевом трафике: зеркалирование запросов, расхождения с BFF в Prometheus и Grafana, chaos-тест отказа.</li>
+        <li>Собрал платформу тарифов и подписок от первой сборки в AWS до прода в 2025 году, больше двух лет был основным backend-разработчиком направления. В 2026 году сделал биллинг и аддоны подписок.</li>
+        <li>Написал с нуля файловый сервис и вывел его в прод за 5 месяцев, затем вынес обработку изображений на Kafka с transactional outbox, для KYC добавил сервис загрузки документов.</li>
+        <li>Написал с нуля dashboard-сервис для личного кабинета мерчанта и сервис обогащения тикетов Zendesk. В адаптерах HubSpot и MyFatoorah сделал онбординг мерчанта из сделки и мультиаккаунтность платежей.</li>
+        <li>Выстроил инженерную базу юнита: линтеры, pre-commit, CODEOWNERS и SonarQube примерно на 15 проектах, сквозная трассировка через API и Temporal-воркеры, Sentry environments и Prometheus-метрики для on-call. Для повышения отказоустойчивости сделал Ansible-конфигуратор секретов в Vault для disaster recovery.</li>
+        <li>Проектировал решения на уровне юнита: реестр workflows для всех команд, модель данных KYC. Перед инфраструктурными решениями проверял гипотезы на практике — по результатам сравнения managed-кеша в облаке с самостоятельным решением команда выбрала self-hosted Redis в Kubernetes. Делал PoC управления продуктом на проде через feature-flag-сервисы (Unleash) и CRD для API Gateway.</li>
+        <li>Для части сервисов сам писал спецификации OpenAPI, для остальных — участвовал в ревью и обсуждении решений. Валидировал контракты через Stoplight, а в API-first сервисах, где OpenAPI-документ первичен, покрывал их контрактными тестами на Schemathesis.</li>
+      </ul>
+
+      <h4>AI в разработке <span class="dates">· 2025 — н. в.</span></h4>
+      <ul class="bullets">
+        <li>Сделал Telegram-интерфейс к AI-ассистенту мерчанта от ADR (OIDC через Keycloak, SSE-стриминг) до релиза, затем перенёс ассистента на отдельный инфраструктурный контур с другими требованиями к размещению данных.</li>
+        <li>Исследовал AI-ревью MR: завёл тестовый MR с намеренными ошибками и сравнил на нём qodo, kodus и свой прототип на локальных моделях. Платные агенты пропускали ошибки и давали разный результат от прогона к прогону, поэтому предложил связку статанализа и параллельной проверки кусков diff.</li>
+        <li>Около года разрабатываю с Claude Code, до этого — Cursor. Перевёл свой сетап на провайдер-агностичный: правила, навыки, MCP и права живут в одном источнике (AGENTS.md), из которого генератор с тестами собирает конфиги для Claude Code и opencode. Замерил расход токенов по 17 сессиям и перестроил работу: чтение кода в субагентах, хуки передачи дел между сессиями, свой учёт расхода.</li>
+      </ul>
+
+      <h4>Life Pay (РФ): интернет-эквайринг <span class="dates">· 2022 — 2025</span></h4>
+      <ul class="bullets">
+        <li>Около 2,5 лет вёл систему платёжных ссылок и Telegram-бот СБП как первый автор: API v1 и v2, клиентская библиотека, мультитенантность, админка, метрики, поддержка, квартальные задачи направления.</li>
+        <li>Написал с нуля сервис, который ретранслирует карточные транзакции в единый личный кабинет через Kafka: от схем сообщений до прода, с DLQ.</li>
+        <li>Спланировал и провёл миграцию бэк-офиса с Python 2 на Python 3 и актуальный Django, включая перевод миграций с SQL на Alembic, а затем на Django-миграции.</li>
+        <li>Создал сервис платёжных шлюзов и сделал в нём интеграции Yandex Split (BNPL) и MyFatoorah: возвраты, проверка подписи вебхуков, мультивалютность, рекуррентные платежи.</li>
+        <li>Нашёл причины и исправил: зависание 3DS, ложные уведомления об оплате, дубли заказов из-за превью-ботов мессенджеров.</li>
+      </ul>
+
+      <p class="stack"><b>Стек:</b> Python, FastAPI, Flask, Django, SQLAlchemy, Temporal, Keycloak, PostgreSQL, Redis, Kafka, S3, Kubernetes (EKS), GitLab CI, Vault, OpenTelemetry, Sentry, Prometheus, Grafana</p>
+    </div>
+
+    <div class="company-block compact">
+      <h3>EPAM Systems <span class="dates">· январь 2021 — июнь 2022 (1 год 6 мес.)</span></h3>
+      <p class="role">Senior software engineer · Санкт-Петербург</p>
+      <ul class="bullets">
+        <li>Разработал и запустил с нуля портал поиска и метаданных для заказчика: REST API на Django и FastAPI, поиск на Elasticsearch.</li>
+        <li>Сделал микросервисы на AWS: ECS, Lambda, SQS, S3.</li>
+        <li>Разрабатывал и поддерживал ETL-пайплайны на AWS Glue, S3 и PySpark.</li>
+        <li>Вёл backend-часть всех фич проекта, выпустил больше 10 эпиков и пользовательских историй.</li>
+        <li>Внедрил в команде юнит-тесты и проверку стиля кода (pytest, flake8), ускорил сборку и деплой. Инфраструктура — на Terraform.</li>
+      </ul>
+      <p class="stack"><b>Стек:</b> Python, Django, FastAPI, SQLAlchemy, PySpark, PostgreSQL, Elasticsearch, AWS (ECS, Lambda, SQS, S3, Glue, Athena), Terraform</p>
+    </div>
+
+    <div class="company-block compact">
+      <h3>JetBrains <span class="dates">· июнь 2019 — декабрь 2020 (1 год 7 мес.)</span></h3>
+      <p class="role">Backend-разработчик · Санкт-Петербург</p>
+      <ul class="bullets">
+        <li>Поддерживал backend jetbrains.com и сателлитных сайтов на Django и Jinja: рефакторинг, юнит-тесты.</li>
+        <li>Перевёл обработку отправки форм на асинхронный пайплайн в AWS (SQS, S3, Lambda) на Kotlin.</li>
+        <li>Отвечал за инфраструктуру и CI/CD: Terraform, TeamCity.</li>
+        <li>Проводил нагрузочное тестирование backend сайта в Apache JMeter.</li>
+        <li>Переработал интеграции с Zendesk и Marketo, помогал с интеграцией Crowdin: слияние файлов, выгрузка и загрузка переводов.</li>
+        <li class="print-trim">Занимался SEO-улучшениями сайтов.</li>
+      </ul>
+      <p class="stack"><b>Стек:</b> Python, Django, Jinja, Kotlin, JavaScript, AWS, Terraform, TeamCity</p>
+    </div>
+
+    <div class="company-block compact">
+      <h3>RAWG.io <span class="dates">· август 2018 — май 2019 (10 мес.)</span></h3>
+      <p class="role">Backend-разработчик · удалённо · сервис рекомендаций видеоигр, «IMDb для игр»</p>
+      <ul class="bullets">
+        <li>Сделал backend пользовательского контента: Django, PostgreSQL, Redis.</li>
+        <li>Улучшил поиск и фильтры на сайте: Elasticsearch и полнотекстовый поиск PostgreSQL.</li>
+        <li>Реализовал топ-100 в реальном времени.</li>
+        <li>Отвечал за backend рекомендательной системы на user-based коллаборативной фильтрации.</li>
+        <li class="print-trim">Сделал пакетные операции в интерфейсе, например карусель оценок.</li>
+      </ul>
+      <p class="stack"><b>Стек:</b> Python, Django REST Framework, PostgreSQL, Celery, Elasticsearch, RabbitMQ, memcached, Docker, Ansible, Jenkins</p>
+    </div>
+
+    <div class="company-block compact">
+      <h3>GOST-group <span class="dates">· июнь 2016 — август 2018 (2 года 3 мес.)</span></h3>
+      <p class="role">Python-разработчик · Москва</p>
+      <ul class="bullets">
+        <li>Разрабатывал веб-приложение с формами и аналитикой данных на Django и Jinja.</li>
+        <li class="print-trim">Рефакторил legacy-код того же проекта.</li>
+        <li>Сделал админ-панель в стиле Django Admin для проекта на Tornado, который обрабатывал и анализировал геоданные.</li>
+        <li>Написал сервис на Go для разбора бинарных данных с реальных объектов.</li>
+      </ul>
+      <p class="stack"><b>Стек:</b> Python 2.7 / 3, Django, Tornado, Go, PostgreSQL, Redis, Celery, SQLAlchemy, Ansible</p>
+    </div>
+
+    <h2>Навыки</h2>
+    <dl class="skills">
+      <dt>Языки</dt><dd>Python, SQL; немного Go и Kotlin</dd>
+      <dt>Backend</dt><dd>FastAPI, Django / DRF, Flask, SQLAlchemy + Alembic, pydantic, Celery, Temporal</dd>
+      <dt>Данные</dt><dd>PostgreSQL, Redis, Kafka, Elasticsearch, S3</dd>
+      <dt>Авторизация</dt><dd>Keycloak, OIDC, JWT, OTP</dd>
+      <dt>Инфраструктура</dt><dd>Kubernetes, Docker, GitLab CI, Terraform, Vault, AWS</dd>
+      <dt>Observability</dt><dd>OpenTelemetry, Sentry, Prometheus, Grafana</dd>
+      <dt>Тестирование</dt><dd>pytest, Schemathesis, Stoplight, SonarQube</dd>
+      <dt>AI-разработка</dt><dd>Claude Code, MCP, субагенты, opencode, локальные модели (Ollama)</dd>
+    </dl>
+
+    <h2>Образование</h2>
+    <p>Академия социального управления, Москва, 2006 — 2011<br>Государственное и муниципальное управление</p>
+
+    <h2>Языки</h2>
+    <p>Русский — родной<br>Английский — B2</p>
+
+    <div class="cta-row">
+      <a class="btn primary" href="/docs/Uvarov_CV_ru.pdf">Скачать PDF (RU)</a>
+      <a class="btn" href="/en/cv/">English version</a>
+      <a class="btn" href="/">← На главную</a>
+    </div>
+  </main>
+
+  <footer class="page-foot">
+    <span>Евгений Уваров, обновлено в октябре 2026</span>
+    <nav><a href="/">Главная</a> · <a href="/en/cv/">English</a></nav>
+  </footer>
+
+</div>
+</body>
+</html>

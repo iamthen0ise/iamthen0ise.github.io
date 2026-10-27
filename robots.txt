@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iamthen0ise.github.io/sitemap.xml
