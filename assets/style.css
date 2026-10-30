@@ -189,6 +189,8 @@ dl.skills dd {
   margin: 26px 0 8px;
 }
 
+.cta-row.cta-top { margin: -14px 0 28px; }
+
 .btn {
   display: inline-block;
   padding: 10px 16px;
