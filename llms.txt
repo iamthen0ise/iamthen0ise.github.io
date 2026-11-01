@@ -1,0 +1,23 @@
+# Евгений Уваров (Evgenii Uvarov)
+
+> Senior backend-разработчик на Python, Санкт-Петербург. 10+ лет коммерческой разработки, последние 4 года — платежи и финтех (интернет-эквайринг, СБП, 3DS, двухстадийные платежи, платформа тарифов и подписок). Открыт к предложениям: удалённо, гибрид или офис, готов к переезду.
+
+Senior Python backend developer based in Saint Petersburg, Russia. 10+ years of commercial development, the last 4 in payments and fintech (online acquiring, Faster Payments System, 3-D Secure, two-stage payments, pricing and subscriptions platform). Open to remote, hybrid or on-site roles and relocation.
+
+## Резюме / Resume
+
+- [Резюме (RU)](https://euvarov.me/cv/): полный опыт — Life Pay / Fortis, EPAM, JetBrains, RAWG.io, GOST-group
+- [Resume (EN)](https://euvarov.me/en/cv/): full experience in English
+- [PDF (RU)](https://euvarov.me/docs/Uvarov_CV_ru.pdf)
+- [PDF (EN)](https://euvarov.me/docs/Uvarov_CV_en.pdf)
+
+## Стек / Stack
+
+Python, FastAPI, Django, PostgreSQL, Kafka, Redis, Kubernetes, Keycloak / OIDC, Temporal, Terraform / Vault, OpenTelemetry, Claude Code / MCP
+
+## Контакты / Contacts
+
+- Email: e.uvarov@me.com
+- [GitHub](https://github.com/iamthen0ise)
+- [LinkedIn](https://www.linkedin.com/in/eugene-uvarov-30409029/)
+- [Telegram](https://t.me/evgenii_uvarov_dev)

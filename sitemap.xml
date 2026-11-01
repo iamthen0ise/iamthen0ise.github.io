@@ -2,27 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://iamthen0ise.github.io/</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://iamthen0ise.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iamthen0ise.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iamthen0ise.github.io/"/>
+    <loc>https://euvarov.me/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://euvarov.me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euvarov.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euvarov.me/"/>
   </url>
   <url>
-    <loc>https://iamthen0ise.github.io/cv/</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://iamthen0ise.github.io/cv/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iamthen0ise.github.io/en/cv/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iamthen0ise.github.io/cv/"/>
+    <loc>https://euvarov.me/cv/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://euvarov.me/cv/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euvarov.me/en/cv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euvarov.me/cv/"/>
   </url>
   <url>
-    <loc>https://iamthen0ise.github.io/en/</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://iamthen0ise.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iamthen0ise.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iamthen0ise.github.io/"/>
+    <loc>https://euvarov.me/en/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://euvarov.me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euvarov.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euvarov.me/"/>
   </url>
   <url>
-    <loc>https://iamthen0ise.github.io/en/cv/</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://iamthen0ise.github.io/cv/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iamthen0ise.github.io/en/cv/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iamthen0ise.github.io/cv/"/>
+    <loc>https://euvarov.me/en/cv/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://euvarov.me/cv/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euvarov.me/en/cv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euvarov.me/cv/"/>
   </url>
 </urlset>
