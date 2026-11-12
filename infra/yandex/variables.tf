@@ -30,6 +30,6 @@ variable "deployer_sa_name" {
 
 variable "create_cdn" {
   type        = bool
-  description = "Стадия 2: создать CDN, когда сертификат ISSUED (DNS-проверка в Namecheap добавлена)."
-  default     = false
+  description = "Создавать CDN. false нужен только при первом выпуске сертификата (стадия 1)."
+  default     = true
 }

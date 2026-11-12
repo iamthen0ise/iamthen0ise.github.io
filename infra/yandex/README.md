@@ -11,7 +11,8 @@ terraform init -backend-config=backend.hcl
 terraform plan
 ```
 
-Стадия 2 (CDN) — после статуса `ISSUED` у сертификата: `terraform apply -var create_cdn=true`.
+Первое развёртывание в две стадии: `terraform apply -var create_cdn=false` (сертификат), добавить
+`_acme-challenge.ru` CNAME в Namecheap, дождаться `ISSUED`, затем обычный `terraform apply` (CDN).
 
 ## Bootstrap state-бакета (один раз, руками)
 
@@ -25,3 +26,15 @@ yc --profile personal resource-manager folder add-access-binding $F \
 yc --profile personal iam access-key create --service-account-name tf-state --folder-id $F
 # key_id и secret -> backend.hcl (chmod 600), в git не попадает
 ```
+
+## CDN: Host для origin (вручную, провайдер не применяет)
+
+Website-эндпоинт выбирает бакет по заголовку Host, поэтому CDN должен слать Host бакета, а не `ru.euvarov.me`.
+`custom_host_header` провайдер не применяет (в `main.tf` стоит `ignore_changes`). После (пере)создания ресурса:
+
+```
+yc --profile personal cdn resource update --id <resource-id> --host-header euvarov.website.yandexcloud.net
+yc --profile personal cdn cache purge --resource-id <resource-id> --path '/*'
+```
+
+Без этого зеркало отвечает `404 NoSuchBucket`. Раскатка конфига на узлы занимает 10–20 минут.

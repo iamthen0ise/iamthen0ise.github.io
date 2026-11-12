@@ -79,7 +79,7 @@ resource "yandex_cdn_resource" "site" {
   options {
     # Website-эндпоинт выбирает бакет по Host, поэтому Host клиента не пробрасываем.
     forward_host_header    = false
-    custom_host_header     = "${yandex_storage_bucket.site.bucket}.website.yandexcloud.net"
+    custom_host_header     = "${var.bucket_name}.website.yandexcloud.net"
     redirect_http_to_https = true
     gzip_on                = true
     edge_cache_settings    = 300
@@ -90,5 +90,12 @@ resource "yandex_cdn_resource" "site" {
   ssl_certificate {
     type                   = "certificate_manager"
     certificate_manager_id = yandex_cm_certificate.mirror.id
+  }
+
+  # Провайдер всегда помечает custom_host_header как "known after apply" и
+  # безуспешно пытается его переприменить. Значение выставлено через yc
+  # (yc cdn resource update --host-header ...), не даём Terraform его трогать.
+  lifecycle {
+    ignore_changes = [options[0].custom_host_header]
   }
 }
