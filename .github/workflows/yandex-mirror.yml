@@ -1,0 +1,32 @@
+# Зеркало сайта в Yandex Object Storage (статический хостинг) за Yandex Cloud CDN.
+# Нужны: secrets YC_S3_ACCESS_KEY_ID, YC_S3_SECRET_ACCESS_KEY; variable YC_BUCKET.
+name: Mirror to Yandex Cloud
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: yandex-mirror
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.YC_S3_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_S3_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ru-central1
+      AWS_ENDPOINT_URL: https://storage.yandexcloud.net
+      BUCKET: ${{ vars.YC_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync site to bucket
+        run: |
+          aws s3 sync . "s3://${BUCKET}" \
+            --delete \
+            --exclude ".git/*" --exclude ".github/*" --exclude "scripts/*" --exclude "infra/*" \
+            --exclude "*.patch" --exclude ".gitignore" --exclude ".DS_Store" \
+            --cache-control "public, max-age=300"

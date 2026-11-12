@@ -1,0 +1,3 @@
+# cp backend.hcl.example backend.hcl  (backend.hcl в .gitignore, chmod 600)
+access_key = "<key_id сервисного аккаунта tf-state>"
+secret_key = "<secret>"
